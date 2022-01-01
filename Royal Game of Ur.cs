@@ -20,9 +20,13 @@ namespace Royal_Game_of_Ur
         static void Main(string[] args)
         {
             Dice myDice = new Dice();
-            Stone[] playerOneStones = new Stone[5];
-            Stone[] playerTwoStones = new Stone[5];
+            Stone[] playerOneStones = new Stone[4];
+            Stone[] playerTwoStones = new Stone[4];
             Board myBoard = new Board();
+            myBoard.initialise();
+            Display canvas = new Display();
+
+            canvas.printBoard(myBoard);
         }
     }
 }
