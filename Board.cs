@@ -16,41 +16,30 @@ namespace Royal_Game_of_Ur
         public void initialise()
         {
             Tile thisTile;
-            for (int i = 0; i < P1Row.Length; i++)
-            {
-                P1Row[i] = new Tile();
-                thisTile = P1Row[i];
-                if (i == 3)
-                {
-                    thisTile.setSpecial();
-                }
-                P1Row[i] = thisTile;
-            }
+            P1Row = initialiseRow(6);
             boardState[0] = P1Row;
+            P2Row = initialiseRow(6);
+            boardState[2] = P2Row;
+            centerRow = initialiseRow(8);
+            boardState[1] = centerRow;     
+        }
 
-            for (int i = 0; i < centerRow.Length; i++)
+        Tile[] initialiseRow(int size)
+        {
+            Tile thisTile;
+            Tile[] playerRow = new Tile[size];
+            for (int i = 0; i < playerRow.Length; i++)
             {
-                centerRow[i] = new Tile();
-                thisTile = centerRow[i];
-                if (i == 3)
+                playerRow[i] = new Tile();
+                thisTile = P1Row[i];
+                if (i == 3 || (playerRow.Length == 6 && i == 5))
                 {
                     thisTile.setSpecial();
                 }
-                centerRow[i] = thisTile;
+                playerRow[i] = thisTile;
             }
-            boardState[0] = centerRow;
-
-            for (int i = 0; i < P2Row.Length; i++)
-            {
-                P2Row[i] = new Tile();
-                thisTile = P2Row[i];
-                if (i == 3)
-                {
-                    thisTile.setSpecial();
-                }
-                P2Row[i] = thisTile;
-            }
-            boardState[0] = P2Row;
+            return playerRow;
+            
         }
 
     }
