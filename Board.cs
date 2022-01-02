@@ -31,7 +31,7 @@ namespace Royal_Game_of_Ur
             for (int i = 0; i < playerRow.Length; i++)
             {
                 playerRow[i] = new Tile();
-                thisTile = P1Row[i];
+                thisTile = playerRow[i];
                 if (i == 3 || (playerRow.Length == 6 && i == 5))
                 {
                     thisTile.setSpecial();
