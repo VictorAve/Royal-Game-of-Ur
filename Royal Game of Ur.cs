@@ -19,14 +19,30 @@ namespace Royal_Game_of_Ur
     {
         static void Main(string[] args)
         {
+            RoyalGameOfUr myGame = new RoyalGameOfUr();
+            myGame.play();
+        }
+
+        void play()
+        {
             Dice myDice = new Dice();
-            Stone[] playerOneStones = new Stone[4];
-            Stone[] playerTwoStones = new Stone[4];
+            Stone[] playerOneStones = new Stone[7];
+            Stone[] playerTwoStones = new Stone[7];
             Board myBoard = new Board();
             myBoard.initialise();
             Display canvas = new Display();
 
             canvas.printBoard(myBoard);
+        }
+
+        void move()
+        {
+
+        }
+
+        void capture()
+        {
+
         }
     }
 }
