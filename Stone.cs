@@ -8,5 +8,16 @@ namespace Royal_Game_of_Ur
 {
     internal class Stone
     {
+        private int ownedBy;
+
+        void setOwner(int player)
+        {
+            ownedBy = player;
+        }
+
+        int getOwner()
+        {
+            return ownedBy;
+        }
     }
 }
