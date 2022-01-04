@@ -11,11 +11,11 @@ namespace Royal_Game_of_Ur
         Random rnd = new Random();
         int rollOne()
         {
-            int result = this.rnd.Next(0, 1);
+            int result = this.rnd.Next(0, 2);
             return result;
         }
 
-        int[] rollAll()
+        public int[] rollAll()
         {
             int[] results = new int[5];
             int sum = 0;
