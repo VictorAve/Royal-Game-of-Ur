@@ -33,9 +33,52 @@ namespace Royal_Game_of_Ur
             Display canvas = new Display();
 
             canvas.printBoard(myBoard);
+
+            int oneRoll;
+            int[] quantities = new int[5];
+            for (int i = 0; i < 5; i++)
+            {
+                quantities[i] = 0;
+            }
+            for (int i = 0; i < 16000; i++)
+            {
+                oneRoll = myDice.rollAll()[4];
+                quantities[oneRoll] = quantities[oneRoll]+1;
+            }
+            Console.WriteLine();
+            Console.WriteLine("0: {0}/1000  {1}", quantities[0], quantities[0] / 1000.0);
+            Console.WriteLine("1: {0}/4000  {1}", quantities[1], quantities[1] / 4000.0);
+            Console.WriteLine("2: {0}/6000  {1}", quantities[2], quantities[2] / 6000.0);
+            Console.WriteLine("3: {0}/4000  {1}", quantities[3], quantities[3] / 4000.0);
+            Console.WriteLine("4: {0}/1000  {1}", quantities[4], quantities[4] / 1000.0);
+            Console.WriteLine();
+
+
+            while (true)
+            {
+                string[] availableActions = { "filler" };
+                int[] diceResult = myDice.rollAll();
+                Console.WriteLine("You got [{0}{1}{2}{3}] totalling {4}",
+                    diceResult[0], diceResult[1], diceResult[2], diceResult[3], diceResult[4]);
+                Console.WriteLine("The available actions are: {0}", availableActions);
+                Console.WriteLine("What piece do you want to move?");
+                string action = Console.ReadLine();
+                if (isValidAction(action, availableActions))
+                {
+                    move(action);
+                }
+            }
         }
 
-        void move()
+        bool isValidAction(string action, string[] availableActions)
+        {
+            if (availableActions.Contains(action))
+            {
+                return true;
+            }
+            return false;
+        }
+        void move(string action)
         {
 
         }
